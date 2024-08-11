@@ -38,5 +38,5 @@ If you'd like to contribute to the Instagram Clone project, please follow these 
 
 For any questions or feedback, you can reach the developer at:
 
-- Email: [your-email@example.com](nate14@gmail.com.com)
-- GitHub: [your-username](https://github.com/your-natuel21)
+- Email: [nate14@gmail.com.com]
+- GitHub: [https://github.com/your-natuel21]
