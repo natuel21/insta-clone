@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TYD</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    
+    <div class="apps-bar">
+        <div class="app-bar-title">tyd</div>
+        <div id="search-container">
+          <input type="text" id="search-input" placeholder="Search by title...">
+          <button id="search-button">Search</button>
+      </div>
+        <div class="app-bar-avatar-container">
+            <div class="app-bar-avatar">
+              <img src="assets/images/post1.jpg" alt="Avatar 1">
+            </div>
+            <div class="app-bar-avatar">
+              <img src="assets/images/post2.jpg" alt="Avatar 2">
+            </div>
+            <div class="app-bar-avatar">
+              <img src="assets/images/post3.png" alt="Avatar 3">
+            </div>
+            <!-- Add more avatar elements as needed -->
+          </div>
+        </div>
+      
+        <div class="full-screen-avatar" style="display: none;">
+          <div class="full-screen-avatar-container">
+            <img src="" alt="Full Screen Avatar" class="full-screen-avatar-img">
+          </div>
+        </div>
+        <script>
+            const avatars = document.querySelectorAll('.app-bar-avatar');
+const fullScreenAvatar = document.querySelector('.full-screen-avatar');
+const fullScreenAvatarImg = fullScreenAvatar.querySelector('.full-screen-avatar-img');
+
+let currentAvatarIndex = 0;
+
+function showFullScreenAvatar(index) {
+  if (index < avatars.length) {
+    const avatarImg = avatars[index].querySelector('img');
+    fullScreenAvatarImg.src = avatarImg.src;
+    fullScreenAvatar.style.display = 'flex';
+  } else {
+    fullScreenAvatar.style.display = 'none';
+  }
+}
+
+avatars.forEach((avatar, index) => {
+  avatar.addEventListener('click', () => {
+    currentAvatarIndex = index;
+    showFullScreenAvatar(currentAvatarIndex);
+  });
+});
+
+fullScreenAvatarImg.addEventListener('click', () => {
+  currentAvatarIndex++;
+  showFullScreenAvatar(currentAvatarIndex);
+});
+
+fullScreenAvatar.addEventListener('click', (event) => {
+  if (event.target === fullScreenAvatar) {
+    fullScreenAvatar.style.display = 'none';
+  }
+});
+          </script>
+          
+          <header class="app-bar">
+            <div class="app-bar-left">
+            <button class="app-bar-button">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="app-bar-logo">
+              <!-- logo here -->
+            </div>
+            </div>
+            <!---->
+            <div class="app-bar-right">
+            <button class="app-bar-button">
+              <i class="fas fa-search"></i>
+            </button>
+
+            <button class="app-bar-button">
+              <i class="fas fa-ellipsis-v"></i>
+            </button>
+            </div>
+            </header>
+
+            <div class="content">
+            </div>
+            <header class="app-bar">
+            <nav class="app-bar-nav">
+              
+              <li><a href="index.html">
+                <i class="fa-solid fa-house"></i>
+                <span></span>
+              </a></li>
+              
+              <li>
+                <a href="profile.html">
+                <img src="assets/images/post1.jpg" class="profile-picture" a href="profile.html">
+                </a>
+              </li>
+            </nav>
+              </header>
+              <!-- 
+    <div class="post">
+        Other post content    
+    </div>
+-->
+    <div class="feed">
+        <!-- Posts will be dynamically inserted here -->
+         
+    </div>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>

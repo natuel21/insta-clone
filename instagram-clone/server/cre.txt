@@ -1,0 +1,58 @@
+CREATE DATABASE instagram_clone;
+
+USE instagram_clone;
+
+CREATE TABLE posts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    image VARCHAR(255) NOT NULL,
+    likes INT DEFAULT 0,
+    comments INT DEFAULT 0,
+    shares INT DEFAULT 0
+);
+
+CREATE TABLE comments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    post_id INT NOT NULL,
+    comment TEXT NOT NULL,
+    FOREIGN KEY (post_id) REFERENCES posts(id)
+);
+
+INSERT INTO posts (image) VALUES
+('assets/images/post1.jpg'),
+('assets/images/post2.jpg'),
+('assets/images/post3.jpg');
+// description
+UPDATE posts
+SET title = 'Title 1', description = 'Description 1'
+WHERE image = 'assets/images/post1.jpg';
+
+UPDATE posts
+SET title = 'Title 2', description = 'Description 2'
+WHERE image = 'assets/images/post2.jpg';
+
+UPDATE posts
+SET title = 'Title 3', description = 'Description 3'
+WHERE image = 'assets/images/post3.jpg';
+
+
+
+
+CREATE TABLE post_likes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    post_id INT NOT NULL,
+    mac_address VARCHAR(255) NOT NULL,
+    UNIQUE (post_id, mac_address),
+    FOREIGN KEY (post_id) REFERENCES posts(id)
+);
+
+ALTER TABLE comments ADD COLUMN user_name VARCHAR(255) NOT NULL AFTER comment;
+
+
+
+// add post
+INSERT INTO posts (image) VALUES ('assets/images/post4.png');
+//
+for deletein 
+DELETE FROM post_likes WHERE post_id = 8;
+DELETE FROM posts WHERE id = 8;
+run it in the main DATABASE
